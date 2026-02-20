@@ -2,14 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Author extends Model
 {
-   protected $guarded = ['id'];
+    use HasFactory;
+    
+    protected $guarded = ['id'];
 
-   public function authors()
-   {
-       return $this->hasMany(Book::class);
-   }
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
 }
